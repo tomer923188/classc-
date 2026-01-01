@@ -203,9 +203,43 @@ namespace ConsoleApp1
             }
         }
 
-        static void game2()
+        static void numberSeq()
         {
-                      
+            int longestSeq = 1;
+            int currentSeq = 1;
+
+            Console.Write("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            while (num >= 10)
+            {
+                int lastDigit = num % 10;
+                int nextDigit = (num / 10) % 10;
+
+                if (lastDigit == nextDigit)
+                {
+                    currentSeq++;
+                }
+                else
+                {
+                    if (currentSeq > longestSeq)
+                        longestSeq = currentSeq;
+
+                    currentSeq = 1;
+                }
+
+                num /= 10;
+            }
+
+            if (currentSeq > longestSeq)
+                longestSeq = currentSeq;
+
+            Console.WriteLine("The longest sequence of identical digits is " + longestSeq);
+        }
+
+        static void phonetask()
+        {
+            
         }
 
         static void Main(string[] args)
@@ -220,8 +254,8 @@ namespace ConsoleApp1
             //whilepractice();
             //maxDigshit();
             //game1();
-            game2();
-
+            //numberSeq();
+            phonetask();
         }
     }
 }
