@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
@@ -49,7 +49,7 @@ namespace ConsoleApp1
         }
         static void group2()
         {
-            for (int k=7;k>=1;k--)
+            for (int k = 7; k >= 1; k--)
             {
                 for (int j = 1; j <= k; j++)
                 {
@@ -65,12 +65,12 @@ namespace ConsoleApp1
 
             for (int i = 1; i <= rows; i++)
             {
-                for (int j = 1; j <= rows - i; j++);
+                for (int j = 1; j <= rows - i; j++) ;
                 Console.WriteLine(" ");
                 for (int k = 1; k <= i; k++)
                     Console.WriteLine(i);
                 Console.WriteLine();
-                
+
             }
         }
         static void printingshape()
@@ -157,6 +157,57 @@ namespace ConsoleApp1
             }
         }
 
+        static void maxDigshit()
+        {
+            Console.Write("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+            int maxDigit = num % 10;
+            num /= 10;
+            while (num != 0)
+            {
+                int currentDigit = num % 10;
+                if (currentDigit > maxDigit)
+                {
+                    maxDigit = currentDigit;
+                }
+                num /= 10;
+            }
+            Console.WriteLine("The max digit is: " + maxDigit);
+        }
+
+        static void game1()
+        {
+            Random rnd = new Random();
+            int num = rnd.Next(1, 101);
+            int guess = 0;
+            int attempts = 0;
+
+            while (guess != num)
+            {
+                Console.Write("Enter a number: ");
+                guess = int.Parse(Console.ReadLine());
+                attempts++;
+                if (guess < num)
+                {
+                    Console.WriteLine("Too low");
+                }
+                else if (guess > num)
+                {
+                    Console.WriteLine("Too high");
+                }
+                else
+                {
+                    Console.WriteLine("You got it right the number was " + num);
+                }
+                Console.WriteLine("attempts: " + attempts);
+            }
+        }
+
+        static void game2()
+        {
+                      
+        }
+
         static void Main(string[] args)
         {
             //sumcalc();
@@ -166,7 +217,11 @@ namespace ConsoleApp1
             //printingtriangle();
             //littertask();
             //printingshape();
-            whilepractice();
+            //whilepractice();
+            //maxDigshit();
+            //game1();
+            game2();
+
         }
     }
 }
