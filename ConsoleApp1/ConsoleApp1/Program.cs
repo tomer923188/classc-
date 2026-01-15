@@ -49,7 +49,7 @@ namespace ConsoleApp1
         }
         static void group2()
         {
-            for (int k = 7; k >= 1; k--)
+            for (int k=7;k>=1;k--)
             {
                 for (int j = 1; j <= k; j++)
                 {
@@ -65,12 +65,12 @@ namespace ConsoleApp1
 
             for (int i = 1; i <= rows; i++)
             {
-                for (int j = 1; j <= rows - i; j++) ;
+                for (int j = 1; j <= rows - i; j++);
                 Console.WriteLine(" ");
                 for (int k = 1; k <= i; k++)
                     Console.WriteLine(i);
                 Console.WriteLine();
-
+                
             }
         }
         static void printingshape()
@@ -157,90 +157,19 @@ namespace ConsoleApp1
             }
         }
 
-        static void maxDigshit()
+        static void IsPalindrome(int num)
         {
-            Console.Write("Enter a number: ");
-            int num = int.Parse(Console.ReadLine());
-            int maxDigit = num % 10;
-            num /= 10;
-            while (num != 0)
+            int digit, newNum = 0, n = num;
+            while (num > 0)
             {
-                int currentDigit = num % 10;
-                if (currentDigit > maxDigit)
-                {
-                    maxDigit = currentDigit;
-                }
-                num /= 10;
+                digit = num % 10;
+                newNum = newNum * 10 + digit;
+                n /= 10;
             }
-            Console.WriteLine("The max digit is: " + maxDigit);
+            if (newNum == num) ;
         }
 
-        static void game1()
-        {
-            Random rnd = new Random();
-            int num = rnd.Next(1, 101);
-            int guess = 0;
-            int attempts = 0;
-
-            while (guess != num)
-            {
-                Console.Write("Enter a number: ");
-                guess = int.Parse(Console.ReadLine());
-                attempts++;
-                if (guess < num)
-                {
-                    Console.WriteLine("Too low");
-                }
-                else if (guess > num)
-                {
-                    Console.WriteLine("Too high");
-                }
-                else
-                {
-                    Console.WriteLine("You got it right the number was " + num);
-                }
-                Console.WriteLine("attempts: " + attempts);
-            }
-        }
-
-        static void numberSeq()
-        {
-            int longestSeq = 1;
-            int currentSeq = 1;
-
-            Console.Write("Enter a number: ");
-            int num = int.Parse(Console.ReadLine());
-
-            while (num >= 10)
-            {
-                int lastDigit = num % 10;
-                int nextDigit = (num / 10) % 10;
-
-                if (lastDigit == nextDigit)
-                {
-                    currentSeq++;
-                }
-                else
-                {
-                    if (currentSeq > longestSeq)
-                        longestSeq = currentSeq;
-
-                    currentSeq = 1;
-                }
-
-                num /= 10;
-            }
-
-            if (currentSeq > longestSeq)
-                longestSeq = currentSeq;
-
-            Console.WriteLine("The longest sequence of identical digits is " + longestSeq);
-        }
-
-        static void phonetask()
-        {
-            
-        }
+        static void rainy shit
 
         static void Main(string[] args)
         {
@@ -252,10 +181,6 @@ namespace ConsoleApp1
             //littertask();
             //printingshape();
             //whilepractice();
-            //maxDigshit();
-            //game1();
-            //numberSeq();
-            phonetask();
         }
     }
 }
